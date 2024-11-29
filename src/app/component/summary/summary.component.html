@@ -1,15 +1,17 @@
 <div class="container">
-    <app-spinner [isLoading]="isLoading"></app-spinner>
-    <h2 class="text-center">Input Paragraph To Summarize</h2>
-    
-    <div class="form-group">
-      <textarea class="form-control" id="textarea" rows="20" [(ngModel)]="text"></textarea>
-    </div>
-    
-    <div class="w-100 text-center">
-        <button class="btn btn-primary" (click)="onButtonClick()" *ngIf="text.trim().length >= 60">Generate Summary</button>
-    </div>
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+  <h2 class="text-primary text-center mb-4">Input Paragraph To Summarize</h2>
+  
+  <div class="row justify-content-center mb-4">
+      <textarea class="form-control" id="textarea" rows="8" [(ngModel)]="text" placeholder="Enter the Paragraph..."></textarea>
+  </div>
 
-    <app-result *ngIf="hasResult" [title]="abstractiveTitle" [summary]="abstractiveSummary" [newWords]="abstractiveWords"></app-result>
-    <app-result *ngIf="hasResult" [title]="extractiveTitle" [summary]="extractiveSummary" [newWords]="extractiveWords"></app-result>
+  <div class="col-12 mt-3" style="margin-top: 2em;">
+    <div class="w-100 text-center">
+      <button class="btn btn-primary" (click)="onButtonClick()" *ngIf="text.trim().length >= 60">Generate Summary</button>
+    </div>
+  </div>
+  
+  <app-result *ngIf="hasResult" [title]="abstractiveTitle" [summary]="abstractiveSummary" [newWords]="abstractiveWords"></app-result>
+  <app-result *ngIf="hasResult" [title]="extractiveTitle" [summary]="extractiveSummary" [newWords]="extractiveWords"></app-result>
 </div>
